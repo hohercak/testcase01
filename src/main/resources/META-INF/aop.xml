@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<aspectj>
+  <aspects>
+    <!-- Only from aop.xml in spring-aspects library.-->
+  </aspects>
+  <weaver options="-showWeaveInfo">
+    <!-- Include projest classes -->
+    <include within="testcase01..*"/>
+    <!-- Exclude CGLIB proxy, based on detection used in org.springframework.aop.support.AopUtils.isCglibProxy-->
+    <exclude within="testcase01..*$$* AND org.springframework.aop.SpringProxy+"/>
+  </weaver>
+</aspectj>
